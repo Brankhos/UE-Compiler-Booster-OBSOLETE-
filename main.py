@@ -96,34 +96,31 @@ class FirstWindow(Screen):
             self.sleep_time = 5
         pass
 
-    def stop(self, dt):
+    def stop(self, bx):
         self.cont_check.active = False
-        dt.disabled = True
-        dt.text = "Procressing"
-        dt.bind(on_press=self.start_single)
+        self.single_button.disabled = True
+        self.single_button.text = "Procressing"
+        self.single_button.bind(on_press=self.start_single)
 
     def start_single(self,dt):
         self.started_single = True
         if self.chck_btn:
-            dt.text = "Stop"
-            dt.bind(on_press=self.stop)
+            self.single_button.text = "Stop"
+            self.single_button.bind(on_press=self.stop)
         else:
-            dt.disabled = True
-            dt.text = "Procressing"
+            self.single_button.disabled = True
+            self.single_button.text = "Procressing"
         self.start_single_cont("emp")
 
     def start_single_cont(self, dt):
-        print("girdi")
         if self.contin or self.chck_btn:
-            print("2. girdi")
             Clock.schedule_once(self.find_process)
             Clock.schedule_once(self.start_single_cont, self.sleep_time)
-            print("3. girdi")
         else:
             self.contin = True
             self.started_single = False
-            dt.disabled = False
-            dt.text = "Start"
+            self.single_button.disabled = False
+            self.single_button.text = "Start"
 
     @staticmethod
     def get_proi_name_for_scroll(proi_type):
