@@ -1,0 +1,133 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<MyLabel@Label>:
+    size_hint_y: None
+    height: self.texture_size[1]
+    #text_size: self.width, None
+    #padding: 10, 10
+    text: ''
+
+<MyGrid>:
+    priority: priority
+    compiler_type: compiler_type
+    cols: 2
+    size_hint_y: None
+    height: self.minimum_height
+    MyLabel:
+        id: compiler_type
+    MyLabel:
+        id: priority
+
+<MyGrid_E>:
+    txt: txt
+    cols: 1
+    size_hint_y: None
+    minimum_height: self.height
+    MyLabel:
+        id: txt
+
+
+
+<FirstWindow>:
+    currents_scroll: currents_scroll
+    currents_out: currents_out
+    mygrid_pro: mygrid_pro
+    slider_shader: slider_shader
+    slider_light: slider_light
+    curr_shader: curr_shader
+    curr_light: curr_light
+    realtime_warning: realtime_warning
+    single_button: single_button
+    cont_check: cont_check
+    GridLayout:
+        cols : 1
+        spacing: 10
+        GridLayout:
+            cols : 2
+            size_hint_y: None
+            padding: 0,20
+            height: 30
+            Label:
+                text: "Process"
+            Label:
+                text: "Priority"
+
+        ScrollView:
+            do_scroll_y: True
+            scroll_y: 1
+            size_hint_y: None
+            id: currents_out
+            GridLayout:
+                id: currents_scroll
+                cols : 1
+                size_hint_y: None
+                height: self.minimum_height
+        MyGrid:
+            id: mygrid_pro
+
+        GridLayout:
+            cols: 1
+            GridLayout:
+                cols: 3
+                size_hint_y: None
+                height: curr_light.height * 5
+                MyLabel:
+                    text: "Process"
+                MyLabel:
+                    text: "Priority"
+                MyLabel:
+                    text: "Cur. Priority"
+                MyLabel:
+                    text: "Shader"
+                Slider:
+                    id: slider_shader
+                    value: 1
+                    min: 0
+                    max: 5
+                    step: 1
+                    orientation: 'horizontal'
+                    value_track: True
+                    value_track_color: hex("#209c05")
+                MyLabel:
+                    id: curr_shader
+                    text: "Below Normal"
+                MyLabel:
+                    text: "Light"
+                Slider:
+                    id: slider_light
+                    value: 1
+                    min: 0
+                    max: 5
+                    step: 1
+                    orientation: 'horizontal'
+                    value_track: True
+                    value_track_color: hex("#209c05")
+                MyLabel:
+                    id: curr_light
+                    text: "Below Normal"
+            MyLabel:
+                id: realtime_warning
+            GridLayout:
+                cols: 2
+                padding: self.width / 3, 0
+                CheckBox:
+                    id: cont_check
+                    active: False
+                    disabled: True
+                Label:
+                    text: "Sürekli kontrol et?"
+            GridLayout:
+                cols:2
+                Button:
+                    text: "Reset"
+                    on_press: root.reset()
+                Button:
+                    id: single_button
+                    text: "Start"
+                    on_press: root.start_single("dt")
+
+
+
+
+
+
