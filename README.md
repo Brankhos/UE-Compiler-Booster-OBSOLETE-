@@ -12,6 +12,6 @@ Please save your work BEFORE boosting
 >First run may take some time
 
 
-![Start](https://ibb.co/gVGbyNG)
+![Start](https://i.ibb.co/Hd0L760/ue1.png)
 
-![Inside](https://ibb.co/RG8q3y0)
+![Inside](https://i.ibb.co/rK9Vxs6/ue1.png)
