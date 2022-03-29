@@ -200,7 +200,7 @@ class FirstWindow(Screen):
 class MainApp(App):
     def __init__(self, **kwargs):
         super(MainApp, self).__init__(**kwargs)
-        self.title = 'EU Complier Booster'
+        self.title = 'UE Complier Booster'
 
         self.sm = ScreenManager()
         self.fw = FirstWindow(name='firstwindow')
