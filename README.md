@@ -1,6 +1,6 @@
 # UE-Compiler-Booster
 
-Boost for shader and light compile
+Boost for shader and light compile. Tested on Python 3.10+
 
 Please save your work BEFORE boosting
 
