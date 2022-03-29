@@ -156,8 +156,8 @@ class FirstWindow(Screen):
     def find_process(self, dt):
         self.currents_scroll.clear_widgets()
         WMI = GetObject('winmgmts:')
-        # procs = WMI.ExecQuery('select * from Win32_Process where Name="ShaderCompileWorker.exe"')
-        procs_sh = WMI.ExecQuery('select * from Win32_Process where Name="AnyDesk.exe"')
+        procs_sh = WMI.ExecQuery('select * from Win32_Process where Name="ShaderCompileWorker.exe"')
+        #procs_sh = WMI.ExecQuery('select * from Win32_Process where Name="AnyDesk.exe"')
         if len(procs_sh) == 0:
             out_widget = MyGrid_E()
             out_widget.txt.text = "There is no ShaderComplier"
@@ -173,8 +173,8 @@ class FirstWindow(Screen):
                         proc_i.nice(priorityclasses[self.shader_num])
                         out_widget.priority.text = self.get_proi_name(proc_i.nice())
 
-        # procs = WMI.ExecQuery('select * from Win32_Process where Name="UnrealLightmass.exe"')
-        procs_l = WMI.ExecQuery('select * from Win32_Process where Name="acrotray.exe"')
+        procs_l = WMI.ExecQuery('select * from Win32_Process where Name="UnrealLightmass.exe"')
+        #procs_l = WMI.ExecQuery('select * from Win32_Process where Name="acrotray.exe"')
         if len(procs_l) == 0:
             out_widget = MyGrid_E()
             out_widget.txt.text = "There is no LightComplier"
